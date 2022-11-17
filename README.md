@@ -10,18 +10,18 @@ For any panel of individual workers (Person) and firms (Firm), singleton observa
 * Remove singletons iteratively:
 local r = 1
 local s = 1
-local singletons = 0 		// Iteratively counts the number of singletons
+local singletons = 0 			// Iteratively counts the number of singletons
 while (`r' > 0 & `s' > 0){
 	cap drop n
-	bys Person: gen n = _N // Number of worker obs
-	count if n == 1		   // Number of singleton person observations
+	bys Person: gen n = _N 		// Number of worker obs
+	count if n == 1		   	// Number of singleton person observations
 	local r = r(N)
 	local singletons = `singletons' + r(N)
 	drop if n == 1
 	
 	cap drop m
-	bys Firm: gen m = _N  // Number of firm obs 
-	count if m == 1       // Number of singleton firm observations
+	bys Firm: gen m = _N  		// Number of firm obs 
+	count if m == 1       		// Number of singleton firm observations
 	local s = r(N)
 	local singletons = `singletons' + r(N)
 	drop if m == 1	
