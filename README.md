@@ -26,5 +26,5 @@ while (`r' > 0 & `s' > 0){
 	local singletons = `singletons' + r(N)
 	drop if m == 1	
 }
-mat singletons = `singletons'
+mat singletons = `singletons'		// Store the number of singletons in a 1-by-1 matrix
 ```
